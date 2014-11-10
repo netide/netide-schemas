@@ -51,6 +51,7 @@
                             <xs:element ref="tns:groupRef" />
                         </xs:choice>
                     </xs:sequence>
+                    <xs:attribute name="text" use="optional" />
                     <xs:attribute name="image" use="optional" />
                     <xs:attribute name="kind" type="tns:MenuKind" use="optional" />
                     <xs:attribute name="style" type="tns:DisplayStyle" use="optional" />
@@ -88,6 +89,8 @@
                             <xs:element ref="tns:comboBoxRef" />
                             <xs:element ref="tns:textBox" />
                             <xs:element ref="tns:textBoxRef" />
+                            <xs:element ref="tns:label" />
+                            <xs:element ref="tns:labelRef" />
                         </xs:choice>
                     </xs:sequence>
                     <xs:attribute name="align" type="tns:GroupAlign" use="optional" />
@@ -110,6 +113,8 @@
                             <xs:element ref="tns:comboBoxRef" />
                             <xs:element ref="tns:textBox" />
                             <xs:element ref="tns:textBoxRef" />
+                            <xs:element ref="tns:label" />
+                            <xs:element ref="tns:labelRef" />
                         </xs:choice>
                     </xs:sequence>
                 </xs:extension>
@@ -121,6 +126,7 @@
         <xs:complexType>
             <xs:complexContent>
                 <xs:extension base="tns:UiControl">
+                    <xs:attribute name="text" use="optional" />
                     <xs:attribute name="image" use="optional" />
                     <xs:attribute name="key" use="optional" />
                     <xs:attribute name="style" type="tns:DisplayStyle" use="optional" />
@@ -175,6 +181,24 @@
         </xs:complexType>
     </xs:element>
 
+    <xs:element name="label">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="tns:UiControl">
+                    <xs:attribute name="text" use="optional" />
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="labelRef">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="tns:UiObjectRef" />
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
     <xs:complexType name="UiObjectRef">
         <xs:attribute name="id" use="optional" />
         <xs:attribute name="guid" use="optional" />
@@ -184,7 +208,6 @@
         <xs:complexContent>
             <xs:extension base="tns:UiObjectRef">
                 <xs:attribute name="priority" type="xs:int" use="optional" />
-                <xs:attribute name="text" use="optional" />
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
